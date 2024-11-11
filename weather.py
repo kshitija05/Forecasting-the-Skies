@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.arima.model import ARIMA
 
 # Load the dataset
-@st.cache
+@st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\hp\OneDrive\bengaluru\bengaluru.csv", index_col='date_time')
+    df = pd.read_csv(r"bengaluru.csv", index_col='date_time')
     df.index = pd.to_datetime(df.index, format='%d-%m-%Y %H:%M')
     return df
 
 # Load the second DataFrame (for example, 2019 data)
-@st.cache
+@st.cache_data
 def load_data_2019():
     df2 = pd.read_csv(r"bengaluru2019.csv", index_col='date_time')
     df2.index = pd.to_datetime(df2.index, format='%d-%m-%Y %H:%M')
